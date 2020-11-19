@@ -1,0 +1,15 @@
+<div class="card text-center">
+    <div class="card-header">
+        {{brand1[0]?.bname}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Brand Name: {{brand1[0]?.bname}}</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer text-muted">
+        <button class="btn btn-secondary" (click)="goBack()">Go Back</button> |
+     
+       <a class="btn btn-secondary" [routerLink]="['/brand-edit', brand1[0]?._id]">Update</a> |
+        <button class="btn btn-secondary" (click)="deleteBrandById(brand1[0]?._id)">Delete</button>
+    </div>
+</div>

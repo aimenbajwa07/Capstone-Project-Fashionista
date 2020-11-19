@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Edit Existing Item</h2>
+
+            <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Item Code</label>
+                    <input type="text" class="form-control" [(ngModel)]="item.code" formControlName="code"
+                        [ngClass]="{'is-invalid': submitted && f.code.errors}" />
+                    <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                        <div *ngIf="f.code.errors.required"> required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Item Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="item.name" formControlName="name"
+                        [ngClass]="{'is-invalid': submitted && f.name.errors}" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required"> required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Item Details</label>
+                    <input type="text" class="form-control" [(ngModel)]="item.details" formControlName="details"
+                        [ngClass]="{'is-invalid': submitted && f.details.errors}" />
+                    <div *ngIf="submitted && f.details.errors" class="invalid-feedback">
+                        <div *ngIf="f.details.errors.required"> required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Item Image</label>
+                    <input type="text" class="form-control" [(ngModel)]="item.image" formControlName="image"
+                        [ngClass]="{'is-invalid': submitted && f.image.errors}" />
+                    <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                        <div *ngIf="f.image.errors.required"> required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Item Price</label>
+                    <input type="text" class="form-control" [(ngModel)]="item.price" formControlName="price"
+                        [ngClass]="{'is-invalid': submitted && f.price.errors}" />
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                        <div *ngIf="f.price.errors.required"> required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Item Brand</label>
+                    <select class="selectpicker dropdown form-control" [(ngModel)]="item.brand"
+                        formControlName="brand" data-live-search="true">
+                        <option *ngFor="let brand of brands" [value]="brand._id">{{brand.bname}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-secondary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

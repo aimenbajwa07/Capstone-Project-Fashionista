@@ -1,0 +1,25 @@
+
+<div class="container">
+    <br/><br />
+    <a routerLink='/brand-add' class="btn btn-secondary">Add Company</a>
+    <br /><br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Brand Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let brand of brands;let rowIndex=index">
+                <td>{{rowIndex+1}}</td>
+                <td>{{brand.bname}}</td>
+                <td>
+                    <a class="btn btn-secondary" [routerLink]="['/brand-detail', brand._id]">View Details</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

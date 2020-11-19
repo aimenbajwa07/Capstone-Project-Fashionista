@@ -1,0 +1,51 @@
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #c2bf1c;">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand" routerLinkActive="active" style="font-weight: 700">One Stop For All</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <ng-container *ngIf="!auth.isAuthenticated()">
+          <li class="nav-item">
+            <a routerLink="/auth/login" class="nav-link" routerLinkActive="active" style="font-weight: 450">
+              Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/auth/register" class="nav-link" style="font-weight: 450">
+              Register
+            </a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="auth.isAuthenticated()">
+         
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/items']" style="font-weight: 450">View Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/cart']" style="font-weight: 450">Cart</a>
+          </li>
+          <li class="nav-item">
+            <div *ngIf=!isAdmin>
+            <a class="nav-link" [routerLink]="['/brands-list']" style="font-weight: 450">Manage Brands</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <div *ngIf=!isAdmin>
+            <a class="nav-link" [routerLink]="['/items-list']" style="font-weight: 450">Manage Items</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-weight: 450">
+              {{ auth.getUsername() }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pointer" (click)="logout()" style="font-weight: 450">
+              Logout
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>

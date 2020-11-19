@@ -1,0 +1,36 @@
+<div class="container">
+    <br /><br />
+<h3>Cart Info</h3>
+<table class="table">
+    <tr>
+        <th>Option</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    <tr *ngFor="let cartItem of cartItems ">
+        <td align="center">
+            <a (click)="remove(cartItem.item?._id)">&#10060;</a>
+        </td>
+        <td>{{cartItem.item?.code}}</td>
+        <td>{{cartItem.item?.name}}</td>
+        <td>
+            <img src="{{cartItem.item?.image}}" width="150" height="150">
+        </td>
+        <td>{{cartItem.item?.price}}</td>
+        <td>{{cartItem.quantity}}</td>
+        <td>{{cartItem.item?.price * cartItem.quantity}}</td>
+    </tr>
+    <tr>
+        <td colspan="6" align="right">Total</td>
+        <td>{{total}}</td>
+    </tr>
+</table>
+
+<input type="button" value="checkOut" (click)="checkOut()"/>
+
+{{msg}}
+</div>
